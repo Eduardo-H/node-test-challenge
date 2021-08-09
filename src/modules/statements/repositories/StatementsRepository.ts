@@ -56,9 +56,9 @@ export class StatementsRepository implements IStatementsRepository {
         return acc - operation.amount;
       } else {
         if (operation.user_id === user_id) {
-          return acc - operation.amount;
-        } else {
           return acc + operation.amount;
+        } else {
+          return acc - operation.amount;
         }
       }
     }, 0)

@@ -6,13 +6,13 @@ class CreateTransferStatementController {
   async execute(request: Request, response: Response): Promise<Response> {
     const { id: sender_id } = request.user;
     const { amount, description } = request.body;
-    const { reciever_id } = request.params;
+    const { user_id } = request.params;
 
     const createTransferStatementUseCase = container.resolve(CreateTransferStatementUseCase);
 
     const statement = await createTransferStatementUseCase.execute({
       sender_id,
-      reciever_id,
+      reciever_id: user_id,
       amount,
       description
     });

@@ -8,8 +8,11 @@ import './database';
 import './shared/container';
 import { router } from './routes';
 import { AppError } from './shared/errors/AppError';
+import createDbConnection from './database'; 
 
 const app = express();
+
+createDbConnection();
 
 app.use(cors());
 app.use(express.json());
